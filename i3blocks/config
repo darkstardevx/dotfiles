@@ -1,0 +1,141 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+# time
+
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+#[currently_playing]
+#command=/home/raven/.config/i3/scripts/currently_playing.py --pango
+#interval=persist
+#separator=true
+#markup=pango
+#align=center
+
+[mediaplayer]
+command=/usr/lib/i3blocks/mediaplayer/mediaplayer
+instance=mpd
+interval=5
+color=#52bbb7
+signal=10
+
+[spotify]
+label=
+command=/home/raven/.config/i3/scripts/spotify.py
+color=#52bbb7
+interval=5
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+[iface]
+label=
+instance=enp2s0
+color=#00FFFF
+interval=10
+separator=true
+color=#adff00
+command=/home/raven/.config/i3/scripts/network
+
+[bandwidth]
+command=/usr/lib/i3blocks/bandwidth/bandwidth
+instance=enp2s0
+interval=5
+
+[cpu_usage]
+command=/usr/lib/i3blocks/cpu_usage/cpu_usage
+label=CPU
+interval=10
+#min_width=CPU: 100.00%
+
+[arch-update]
+command=/home/raven/.config/i3/scripts/arch-update 
+interval=3600
+markup=pango
+#LABEL=Updates:
+
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[temperature]
+#label=TEMP
+label=
+interval=10
+command=/usr/lib/i3blocks/temperature/temperature
+#color=#8caba8
+color=#dcedc1
+separator=true
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+label=:
+separator=true
+interval=1
+command=/usr/lib/i3blocks/memory/memory
+color=#dfe3ee
+
+[disk-root]
+label=:
+command=/usr/lib/i3blocks/disk/disk /
+interval=30
+color=#1793D1
+#color=#cc241d
+
+[volume]
+label=  
+command=/home/raven/.config/i3/scripts/volume
+interval=2
+signal=10
+color=#52bbb7
+
+[time]
+label=
+command=date '+%l:%M %p %a %m-%d-%y'
+interval=30
+color=#52bbb7
+
+#[monitors]
+#command=/usr/lib/i3blocks/monitor_manager/monitor_manager
+#interval=once
+
+# OpenVPN support
+#
+#[openvpn]
+#command=/usr/lib/i3blocks/openvpn/openvpn
+#interval=20
+
+#[load_average]
+#interval=10
+

@@ -1,0 +1,163 @@
+#! /bin/sh
+
+#  _                                  
+# | |__  ___ _ ____      ___ __ ___   
+# | '_ \/ __| '_ \ \ /\ / / '_ ` _ \  
+# | |_) \__ \ |_) \ V  V /| | | | | | 
+# |_.__/|___/ .__/ \_/\_/ |_| |_| |_| 
+#           |_|                       
+#Binary Space Partition Window Manager
+
+coded_by='
+Darkstardevx [darkstardevx@gmail.com]
+https://github.com/darkstardevx/dotfiles/bspwm/
+'
+
+# 1. Configuration
+# bspc monitor -d            
+bspc monitor HDMI-0 -d I II III IV V VI VII VIII IX X XI XII XIII XIV XV XVI XVII XVIII XIX XX
+bspc monitor DVI-I-1 -d I II III IV V VI VII VIII IX X XI XII XIII XIV XV
+
+# Rules for windows
+bspc config external_rules_command "$HOME"/.config/bspwm/external_rules
+
+# 2. Autostart
+
+# Simple X Hotkey Daemon
+pkill sxhkd
+sxhkd &
+
+# Polybar
+$HOME/.config/polybar/launch.sh
+
+# Picom (Compositor)
+pkill picom
+compton --config ~/.config/picom.conf &
+
+# Dunst (Notifications)
+pkill dunst
+$HOME/.config/dunst/dunstrc
+
+# NetworkManager Applet
+nm-applet &
+
+# Pamac Manager
+pamac-tray &
+
+# Xfce4 Notes
+pkill xfce4-notes
+xfce4-notes -d &
+
+# ClipIt
+pkill clipit
+clipit &
+
+# Guake Terminal
+pkill guake
+guake &
+
+# Wallpapers
+pkill nitrogen
+nitrogen --restore &
+
+# Screensaver
+pkill xscreensaver
+xscreensaver &
+
+# Passwords
+Keepassx &
+
+# Audio
+start-pulseaudio-x11 &
+
+# VPN
+/opt/piavpn/bin/pia-client
+
+# Number Locker
+numlockx &
+
+# policykit-1-gnome
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# 3. Common BSPWM Configuration
+
+# Border width and gaps between windows
+border_width=5
+bspc config border_width         0
+bspc config window_gap           $border_width
+
+# Padding
+bspc config top_padding 25
+bspc config bottom_padding 0
+bspc config left_padding 1
+bspc config right_padding 1
+
+# Split ratio for new windows
+bspc config split_ratio          0.52
+
+# If monacle layout, no border to windows
+bspc config borderless_monocle   true
+
+# No gaps
+bspc config gapless_monocle      true
+  
+# 4. Mouse Settings
+# Use mouse to resize, move windows
+bspc config pointer_modifier mod1
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+# 5. Color Settings (source the colors from pywal)
+"${HOME}/.cache/wal/colors.sh"
+
+# 6. Window Rules (workspaces)
+
+# Pseudo Tiled Rules
+bspc rule -a Skype            pseudo_tiled=on focus=on
+bspc rule -a File-roller      pseudo_tiled=on focus=on
+bspc rule -a Catfish 		  pseudo_tiled=on focus=on
+bspc rule -a nm-connection-editor pseudo_tiled=on focus=on
+
+# Tiled Rules
+bspc rule -a Gedit state=tiled center=true
+bspc rule -a Thunar state=tiled center=true
+
+# Floating Rules
+bspc rule -a Pamac-manager state=floating center=true
+bspc rule -a rofi state=floating follow=on center=true
+bspc rule -a Mousepad state=floating center=true
+bspc rule -a ReText state=floating center=true
+bspc rule -a Io.github.celluloid_player.Celluloid:* state=floating
+bspc rule -a Termite state=floating rectangle=800x500+100+100 sticky=on
+bspc rule -a kitty state=floating rectangle=800x500+100+100 sticky=on
+bspc rule -a feh state=floating center=true
+bspc rule -a sxiv state=floating center=true
+bspc rule -a gwenview state=floating center=true
+bspc rule -a Shotwell state=floating center=true
+bspc rule -a Keepassx state=floating center=true
+bspc rule -a Xfce4-dict state=floating center=true
+bspc rule -a Xfce4-notes state=floating center=true
+bspc rule -a Guake state=floating center=true
+bspc rule -a Gcolor3 state=floating center=true
+bspc rule -a Lxappearance state=floating center=true
+bspc rule -a Nitrogen state=floating center=true
+bspc rule -a GParted state=floating center=true
+bspc rule -a Postman state=floating center=true
+bspc rule -a k3b state=floating center=true
+bspc rule -a Brasero state=floating center=true
+bspc rule -a Audacious state=floating center=true
+bspc rule -a vorta state=floating center=true
+bspc rule -a Gparted state=floating center=true
+bspc rule -a Pcmanfm state=floating center=true
+bspc rule -a Xscreensaver-demo state=floating center=true
+bspc rule -a Remarkable state=floating center=true
+bspc rule -a Spotify state=floating center=true
+bspc rule -a Devede_ng.py state=floating center=true
+bspc rule -a Youtube-dl-gui state=floating center=true
+bspc rule -a Mediainfo-gui state=floating center=true
+bspc rule -a SimpleScreenRecorder state=floating center=true
+bspc rule -a VirtualBox Manager state=floating center=true
+bspc rule -a Devede_ng.py state=floating center=true
+bspc rule -a Alacritty state=floating rectangle=800x500+100+100 sticky=on
+bspc rule -a st-256color state=floating rectangle=800x500+100+100 sticky=on

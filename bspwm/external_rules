@@ -1,0 +1,27 @@
+#!/bin/sh
+
+coded_by='
+Darkstardevx [darkstardevx@gmail.com]
+https://github.com/darkstardevx/dotfiles/bspwm/
+'
+
+# BSPWM RULES
+window=$1
+class=$2
+instance=$3
+title=$(xdotool getwindowname $window)
+
+case $class in
+  [Cc]elluloid|[Gg]color3|[Mm]pv|[Mm]Player|[Gg]picview|[Aa]randr|[Gg]alculator|[Ff]ont-manager|[Ss]kype|[Xx]fce4-appfinder|[Xx]fce4-about|[Gg]pick|[Cc]alc|[Pp]avucontrol|[Vv]lc|[Ff]eh|[Rr]istretto|[Ss]xiv|[Ee]vince|scratchpad)
+  echo "state = floating"
+  echo "center = on"
+esac
+
+case $title in
+  scratchpad)
+    echo "state = floating"
+    ;;
+esac
+
+# vim:ft=sh
+

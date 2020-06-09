@@ -1,0 +1,576 @@
+#  _ _____                    __ _
+# (_)___ /    ___ ___  _ __  / _(_) __ _
+# | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
+# | |___) | | (_| (_) | | | |  _| | (_| |
+# |_|____/   \___\___/|_| |_|_| |_|\__, |
+#                                  |___/
+#
+# Author: Darkstardevx <darkstardevx@gmail.com>
+# Repository: https://github.com/darkstardevx/dotfiles
+# License: MIT
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+# KEY DEFINITIONS TO REMEMBER
+
+# Mod4 = WINDOWS key or Super key or Mod4
+# Mod1 = ALT key
+# Control = CTRL key
+# Shift = SHIFT key
+# Escape = ESCAPE key
+# Return = ENTER or RETURN key
+# Pause = PAUSE key
+# Print = PRINT key
+# Tab = TAB key
+
+# Mod4 = windows key on keyboard or super key
+# Alt key is Mod1 if you want to change the $mod key
+set $mod Mod4
+
+# Hide titlebar
+new_window pixel
+
+# Fonts
+# font for window titles and bar
+#font pango:Termsyn 8
+font pango: SpaceMono Nerd Font Mono Medium 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:FontAwesome 8, Termsyn 8
+
+# Displays
+set $disp1 HDMI-1
+set $disp2 VGA-1
+
+# Display Settings (xrandr)
+exec –no-startup-id xrandr –output VGA-1 –right-of HDMI-1 –auto
+
+# use these keys for focus, movement, and resize directions
+set $left   j
+set $down   k
+set $up     l
+set $right  semicolon
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# Xfce Terminal
+bindsym $mod+Return exec xfce4-terminal
+
+# Kitty Terminal
+bindsym $mod+x exec kitty
+
+# Termite Terminal
+bindsym $mod+z exec termite
+
+# Thunar
+bindsym $mod+t exec thunar
+
+# PCManFM
+bindsym $mod+g exec pcmanfm
+
+# Celluloid
+bindsym $mod+c exec celluloid
+
+# ReText
+bindsym $mod+y exec retext
+
+# Xed
+bindsym $mod+b exec xed
+
+# Mousepad
+bindsym $mod+u exec mousepad
+
+# Chromium
+bindsym $mod+m exec chromium
+
+# Firefox
+bindsym $mod+n exec firefox
+
+# Gcolor
+bindsym $mod+p exec gcolor3
+
+# virt-manager
+bindsym $mod+Ctrl+F11 exec /usr/bin/virt-manager
+
+# Ncmpcpp
+bindsym $mod+i exec xfce4-terminal -e ncmpcpp
+
+# Ranger File Manager
+bindsym $mod+o exec xfce4-terminal -e ranger
+
+# start dmenu (a program launcher)
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+#bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
+# start j4-dmenu (based on desktop files in /usr/share/applications)
+# https://github.com/enkore/j4-dmenu-desktop
+bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bold:pixelsize=10' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#FFAF00'"
+
+# start rofi (improved dmenu)
+bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
+
+# mouse settings
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move workspaces
+bindsym $mod+Shift+m move workspace to output left
+
+# Workspaces 1-10
+set $ws1 "1: Chromium"
+set $ws2 "2: Firefox"
+set $ws3 "3: Torrent"
+set $ws4 "4: Chat"
+set $ws5 "5: Files"
+set $ws6 "6: Terminals"
+set $ws7 "7: Config"
+set $ws8 "8: System"
+set $ws9 "9: Terminals"
+set $ws10 "10: Music"
+
+# Workspaces 11-20
+set $ws11 "11: Media"
+set $ws12 "12: Video"
+set $ws13 "13: Code"
+set $ws14 "14: Config"
+set $ws15 "15: Terminals"
+set $ws16 "16: Web"
+set $ws17 "17: Docs"
+set $ws18 "18: Design"
+set $ws19 "19: Virtual"
+set $ws20 "20: Tools"
+
+# Set workspaces 1-10
+#set $ws1 "1"
+#set $ws2 "2"
+#set $ws3 "3"
+#set $ws4 "4"
+#set $ws5 "5"
+#set $ws6 "6"
+#set $ws7 "7"
+#set $ws8 "8"
+#set $ws9 "9"
+#set $ws10 "10"
+
+# Set workspaces 11-20
+#set $ws11 "11"
+#set $ws12 "12"
+#set $ws13 "13"
+#set $ws14 "14"
+#set $ws15 "15"
+#set $ws16 "16"
+#set $ws17 "17"
+#set $ws18 "18"
+#set $ws19 "19"
+#set $ws20 "20"
+
+# Bind workspaces 1-10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Bind workspaces 11-20
+bindsym $mod+Control+1 workspace $ws11
+bindsym $mod+Control+2 workspace $ws12
+bindsym $mod+Control+3 workspace $ws13
+bindsym $mod+Control+4 workspace $ws14
+bindsym $mod+Control+5 workspace $ws15
+bindsym $mod+Control+6 workspace $ws16
+bindsym $mod+Control+7 workspace $ws17
+bindsym $mod+Control+8 workspace $ws18
+bindsym $mod+Control+9 workspace $ws19
+bindsym $mod+Control+0 workspace $ws20
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Tab+1 move container to workspace $ws11
+bindsym $mod+Tab+2 move container to workspace $ws12
+bindsym $mod+Tab+3 move container to workspace $ws13
+bindsym $mod+Tab+4 move container to workspace $ws14
+bindsym $mod+Tab+5 move container to workspace $ws15
+bindsym $mod+Tab+6 move container to workspace $ws16
+bindsym $mod+Tab+7 move container to workspace $ws17
+bindsym $mod+Tab+8 move container to workspace $ws18
+bindsym $mod+Tab+9 move container to workspace $ws19
+bindsym $mod+Tab+0 move container to workspace $ws20
+
+# Always open some programs on specified workspace
+assign [class="chromium"]            $ws1
+assign [class="firefox"]             $ws2
+assign [class="qBittorrent"]         $ws3
+assign [class="HexChat"]             $ws4
+#assign [class="(?i)epdfview"]       $ws7
+#assign [class="Gimp"]               $ws5
+#assign [class="Krita"]              $ws5
+#assign [class="Inkscape"]           $ws5
+#assign [class="Galculator"]         $ws7
+#assign [class="libreoffice"]        $ws7
+#assign [class="imagewriter"]        $ws9
+assign [class="(?i)virtualbox"]      $ws19
+assign [class="Virt-manager"]        $ws19
+#assign [class="Spotify"]            $ws10
+#assign [class="Pithos"]             $ws10
+#assign [class="xfce4-terminal" instance="ncmpcpp"] $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	font pango:Terminus 8, FontAwesome 8
+    output $disp1
+    tray_output HDMI-1
+	status_command i3blocks -c ~/.config/i3blocks/config
+	position top
+	mode dock
+	modifier None
+    workspace_buttons yes
+colors {
+    background $base00
+    separator  $base01
+    statusline $base04
+
+    # State             Border  BG      Text
+    focused_workspace   $base05 $base0D $base00
+    active_workspace    $base05 $base03 $base00
+    inactive_workspace  $base03 $base01 $base05
+    urgent_workspace    $base08 $base08 $base00
+    binding_mode        $base00 $base0A $base00
+  }
+}
+
+bar {
+    output $disp2
+    tray_output none
+    status_command i3status
+    position top
+colors {
+    background $base00
+    separator  $base01
+    statusline $base04
+
+    # State             Border  BG      Text
+    focused_workspace   $base05 $base0D $base00
+    active_workspace    $base05 $base03 $base00
+    inactive_workspace  $base03 $base01 $base05
+    urgent_workspace    $base08 $base08 $base00
+    binding_mode        $base00 $base0A $base00
+  }
+}
+
+## Base16 Dracula Colorscheme (i3bar, i3status)
+
+set $base00 #282936
+set $base01 #3a3c4e
+set $base02 #4d4f68
+set $base03 #626483
+set $base04 #62d6e8
+set $base05 #e9e9f4
+set $base06 #f1f2f8
+set $base07 #f7f7fb
+set $base08 #ea51b2
+set $base09 #b45bcf
+set $base0A #00f769
+set $base0B #ebff87
+set $base0C #a1efe4
+set $base0D #62d6e8
+set $base0E #b45bcf
+set $base0F #00f769
+
+# Startup Applications
+exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/chromium'
+exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace $ws3; exec /usr/bin/qbittorrent'
+exec --no-startup-id i3-msg 'workspace $ws4; exec /usr/bin/hexchat'
+exec --no-startup-id nm-applet -d &
+exec --no-startup-id clipit &
+exec --no-startup-id Keepassx
+exec --no-startup-id xfce4-notes -d &
+exec --no-startup-id pulseaudio-x11 &
+exec --no-startup-id sleep 3s; guake &
+exec --no-startup-id sleep 3s; pamac-tray
+exec --no-startup-id /opt/piavpn/bin/pia-client
+exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id notify-send "i3wm | Arch Linux" -i /usr/share/icons/Papirus-Dark/16x16/places/folder-teal.svg
+
+# Gaps Configuration
+gaps inner 5
+gaps outer 5
+#smart_gaps on
+#smart_borders on
+
+# Borders
+default_border pixel 0
+default_floating_border pixel 0
+
+#bindsym $mod+Shift+Delete exec /home/raven/.config/i3blocks/.scripts/statusbar/shutdown_menu
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /home/raven/.config/i3/scripts/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Lockscreen (betterlockscreen)
+bindsym $mod+shift+x exec betterlockscreen -l dim
+
+# For screenshots and recording
+bindsym Print exec --no-startup-id "scrot -z '%y%m%d%H%m%S.png' -e 'mv $f ~/Pictures/scrots/'"
+bindsym Shift+Print 		exec --no-startup-id maimpick
+bindsym $mod+Print		exec --no-startup-id dmenurecord
+bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
+bindsym $mod+Delete		exec $stoprec
+bindsym XF86Launch1		exec --no-startup-id xset dpms force off
+
+# Shutdown, reboot, lock screen
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+q mode "$mode_system"
+
+# Enable float for some windows
+#for_window [class="Firefox" instance="Places"] floating enable
+#for_window [class="Chromium" instance="Places"] floating enable
+
+# Tools
+for_window [class="Galculator"] floating enable border normal
+for_window [class="Pamac-manager"] floating enable border pixel 1
+for_window [class="(?i)virtualbox"] floating enable border pixel 1
+
+# Text Editors / IDE
+for_window [class="ReText"] floating enable border pixel 1
+for_window [class="Geany"] floating enable border pixel 1
+for_window [class="Mousepad"] floating enable border pixel 1
+for_window [class="Evince"] floating enable border pixel 1
+
+# Multimedia
+for_window [class="celluloid"] floating enable border pixel 1
+for_window [class="GNOME MPlayer"] floating enable border pixel 1
+for_window [class="Vlc"] floating enable border pixel 1
+for_window [class="SoundConverter"] floating enable border pixel 1
+for_window [class="Sonata"] floating enable border pixel 1
+for_window [class="cantata"] floating enable border pixel 1
+for_window [class="Mediainfo-gui"] floating enable border pixel 1
+#for_window [class="Picard"] floating enable border pixel 1
+for_window [class="Audacious"] floating enable border pixel 1
+
+# Sound
+for_window [class="Pavucontrol"] floating enable border normal
+for_window [title="alsamixer"] floating enable border pixel 1
+
+# Terminals
+for_window [class="kitty"] floating enable border pixel 1
+for_window [class="Termite"] floating enable border pixel 1
+for_window [class="URxvt"] floating enable border pixel 1
+for_window [class="Terminator"] floating enable border pixel 1
+
+# Graphics
+for_window [class="sxiv"] floating enable border pixel 1
+for_window [class="feh"] floating enable border pixel 1
+
+# Internet
+for_window [class="Firefox"] enable border pixel 1
+for_window [class="HexChat"] floating enable border pixel 1
+#for_window [class="qBittorrent"] floating enable border pixel 1
+
+# Appearance (themes, wallpapers, etc.)
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+
+# Colors
+for_window [class="Gcolor3"] floating enable border pixel 1
+
+# Compression
+for_window [class="xarchiver"] floating enable border pixel 1
+
+# System
+for_window [class="GParted"] floating enable border normal
+for_window [class="Keepassx"] floating enable border normal
+
+## Autostart Apps and Daemons ##
+
+#       Daemon
+exec --no-startup-id thunar --daemon
+
+#       Pulseaudio
+exec --no-startup-id start-pulseaudio-x11
+
+#       Music server MPD
+exec --no-startup-id mpd
+
+#       Composite manager (picom, formerly compton)
+#exec --no-startup-id picom -cCGb      
+#exec --no-startup-ic xcompmgr -c -t-5 -l-5 -r4.2 -o.55
+exec_always --no-startup-id compton --config /home/raven/.config/picom.conf
+
+#       Number Locker
+exec --no-startup-id numlockx on
+
+#       Background (wallpapers)
+exec --no-startup-id Nitrogen --restore
+
+# Backgrounds (dual monitors)
+#exec_always DISPLAY=:0.0 feh --bg-scale /home/raven/wallpapers/1795201.jpg
+
+#exec_always DISPLAY=:0.1 feh --bg-scale /home/raven/wallpapers/1795201-mirror.jpg
+
+# Enable Lockscreen Timeout (betterlockscreen)
+#exec xautolock -time 1 -locker lock -l dim
+#exec_always xautolock -time 30 -locker 'betterlockscreen -l dim'
+
+# Xscreensaver
+exec_always xscreensaver -no-splash &
+
+# Dunst (notifications)
+exec_always --no-startup-id dunst
+
+exec_always xset s off
+exec_always xset -dpms
+
+# screenshot
+bindsym --release Print exec --no-startup-id "maim -p 0 -c 0.96,0.5,0.09 /home/raven/Pictures/screenshots/-$(date +%Y-%m-%d_%H-%M-%S).png"
+bindsym --release Shift+Print exec --no-startup-id "maim -s -p 0 -c 0.96,0.5,0.09 /home/raven/Pictures/screenshots/-$(date +%Y-%m-%d_%H-%M-%S).png"
+
+# i3-style config
+# i3-style solarized -o ~/.config/i3/config --reload
+# i3-style ~/.config/i3-style/themes/tomorrow-night-80s -o ~/.config/i3/config
+
+# Solarized Style Theme (i3-style)
+client.focused #62EEE2 #62EEE2 #fdf6e3 #6c71c4
+client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
+client.unfocused #073642 #073642 #93a1a1 #586e75
+client.urgent #d33682 #d33682 #fdf6e3 #dc322f

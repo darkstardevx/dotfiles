@@ -1,0 +1,28 @@
+**** BEGIN LOGGING AT Sun Jun  7 16:24:47 2020
+
+Jun 07 16:24:47 *	Connecting to chat.freenode.net (2001:5a0:40:50:66:110:9:37:6697)
+Jun 07 16:24:48 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Jun 07 16:24:48 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Jun 07 16:24:48 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Jun 07 16:24:48 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Jun 07 16:24:48 *	* Subject: /CN=egan.freenode.net
+Jun 07 16:24:48 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Jun 07 16:24:48 *	* Certification info:
+Jun 07 16:24:48 *	  Subject:
+Jun 07 16:24:48 *	    CN=egan.freenode.net
+Jun 07 16:24:48 *	  Issuer:
+Jun 07 16:24:48 *	    C=US
+Jun 07 16:24:48 *	    O=Let's Encrypt
+Jun 07 16:24:48 *	    CN=Let's Encrypt Authority X3
+Jun 07 16:24:48 *	  Public key algorithm: rsaEncryption (4096 bits)
+Jun 07 16:24:48 *	  Sign algorithm sha256WithRSAEncryption
+Jun 07 16:24:48 *	  Valid since Apr  8 20:51:20 2020 GM to Jul  7 20:51:20 2020 GM
+Jun 07 16:24:48 *	* Cipher info:
+Jun 07 16:24:48 *	  Version: TLSv1.3, cipher TLS_AES_256_GCM_SHA384 (256 bits)
+Jun 07 16:24:48 *	Connected. Now logging in.
+**** BEGIN LOGGING AT Tue Jun  9 03:10:25 2020
+
+Jun 09 03:10:25 *	darkstardevx sets mode +Z on darkstardevx
+Jun 09 03:10:25 *	darkstardevx sets mode +i on darkstardevx
+**** ENDING LOGGING AT Tue Jun  9 03:10:31 2020
+

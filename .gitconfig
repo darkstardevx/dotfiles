@@ -1,0 +1,25 @@
+[github.com]
+	email = darkstardevx@gmail.com
+	name = angryrobot
+[www.gitlab.com]
+  user = angryrobot
+  email = darkstardevx@gmail.com
+[alias]
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	tree = !git lg --graph
+	unstage = reset HEAD
+	last = log -1 HEAD
+	visual = !gitk
+	st = status
+	uncommit = reset --soft HEAD^
+	progress = diff --stat
+	pg = diff --shortstat
+[color]
+	ui = auto
+[core]
+	editor = vim
+[push]
+	default = simple
+[user]
+	name = Brett
+	email = darkstardevx@gmail.com

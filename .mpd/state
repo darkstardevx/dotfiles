@@ -1,0 +1,54 @@
+sw_volume: 100
+audio_device_state:1:Pulseaudio
+audio_device_state:1:my_fifo
+state: stop
+current: 39
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:4 Non Blondes/Bigger, Better, Faster, More!/03 What's Up.mp3
+1:Mors Principium Est/Dawn of the 5th Era/02 God Has Fallen.mp3
+2:2Pac/R U Still Down_ (Remember Me)/1-01 Redemption.mp3
+3:2Pac/R U Still Down_ (Remember Me)/1-02 Open Fire.mp3
+4:2Pac/R U Still Down_ (Remember Me)/1-04 Hellrazor.mp3
+5:2Pac/R U Still Down_ (Remember Me)/1-06 Where Do We Go From Here (interlude).mp3
+6:2Pac/R U Still Down_ (Remember Me)/1-05 Thug Style.mp3
+7:10 Years/The Autumn Effect/01 Waking Up.mp3
+8:10 Years/Division/01 Actions & Motives.mp3
+9:10 Years/Division/02 Just Can't Win.mp3
+10:10 Years/Division/05 Dying Youth.mp3
+11:10 Years/Division/06 Russian Roulette.mp3
+12:10 Years/Division/07 Focus.mp3
+13:10 Years/Division/08 Drug of Choice.mp3
+14:10 Years/Division/09 Picture Perfect (In Your Eyes).mp3
+15:10 Years/Division/10 All Your Lies.mp3
+16:10 Years/Division/11 So Long, Good-Bye.mp3
+17:10 Years/Division/12 Alabama.mp3
+18:10 Years/Division/13 Proud of You.mp3
+19:10 Years/Division/14 Scream at the Walls.mp3
+20:10 Years/Division/15 Cycle of Life.mp3
+21:10 Years/Division/16 Patiently.mp3
+22:10 Years/Division/17 Beautiful (acoustic).mp3
+23:10 Years/Division/01 Actions & Motives.mp3
+24:10 Years/Division/02 Just Can't Win.mp3
+25:10 Years/Division/05 Dying Youth.mp3
+26:10 Years/Division/06 Russian Roulette.mp3
+27:10 Years/Division/07 Focus.mp3
+28:10 Years/Division/08 Drug of Choice.mp3
+29:10 Years/Division/09 Picture Perfect (In Your Eyes).mp3
+30:10 Years/Division/10 All Your Lies.mp3
+31:10 Years/Division/11 So Long, Good-Bye.mp3
+32:10 Years/Division/12 Alabama.mp3
+33:10 Years/Division/13 Proud of You.mp3
+34:10 Years/Division/14 Scream at the Walls.mp3
+35:10 Years/Division/15 Cycle of Life.mp3
+36:10 Years/Division/16 Patiently.mp3
+37:10 Years/Division/17 Beautiful (acoustic).mp3
+38:10 Years/Division/03 Beautiful.mp3
+39:10 Years/Division/04 11_00am (Daydreamer).mp3
+playlist_end
